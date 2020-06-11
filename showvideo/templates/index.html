@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BoB</title>
+</head>
+<body>
+{{ name }}
+{{ d }}
+{{ arr }}
+<br>
+{% for i in arr %}
+    <i>{{ i }}</i><br>
+{% endfor %}
+
+<h1>Hello from templates</h1>
+{% for video in content %}
+    <iframe width="956" height="538" src="{{ video.urls }}"></iframe>
+{%  endfor %}
+
+</body>
+</html>
