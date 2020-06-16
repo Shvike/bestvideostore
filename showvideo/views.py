@@ -41,3 +41,10 @@ def add_like(request, id):
     v.likes += 2
     v.save()
     return redirect("main_page")
+
+def ajax_like(request):
+    id = request.GET["id"]
+    v = Video.objects.get(id=id)
+    v.likes += 1
+    v.save()
+    return HttpResponse(v.likes)

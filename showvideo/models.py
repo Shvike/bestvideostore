@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 
 
 class Video(models.Model):
@@ -18,6 +19,15 @@ class Video(models.Model):
     likes = models.PositiveIntegerField(default=0, verbose_name="Лайкосы")
     def __str__(self):
         return self.title
+
+    @property
+    def test(self):
+        return f"Property hello {self.title}{self.likes ** 2}"
+
+    @property
+    def tv(self):
+        return mark_safe(f"<iframe width='128' height='72' src='{self.urls}'></iframe>")
+
 
 
 class Comment(models.Model):

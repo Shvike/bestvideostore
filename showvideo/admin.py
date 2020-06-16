@@ -10,9 +10,10 @@ class CommentAdmin(admin.StackedInline):
 class VideoAdmin(admin.ModelAdmin):
     inlines = [CommentAdmin]
     readonly_fields = ["likes"]
-    list_display = ["title", "likes"]
+    list_display = ["title", "likes", "test", "tv"]
     list_filter = ["likes", "date"]
     prepopulated_fields = {"slug":["title"]}
+    search_fields = ["date"]
 
 
 admin.site.register(Video, VideoAdmin)

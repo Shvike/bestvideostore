@@ -8,4 +8,5 @@ urlpatterns = [
     re_path("comment/(?P<id>[-\d]+)/", views.accept_comment),
     re_path("only_video/(?P<id>[-\d]+)/", views.only_video),
     re_path("add_like/(?P<id>[-\d]+)/", views.add_like),
+    re_path("ajax/add_like/", views.ajax_like),
 ]

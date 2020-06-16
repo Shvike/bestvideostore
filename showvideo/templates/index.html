@@ -10,10 +10,11 @@
 {##}
 {#<h1>Hello from templates</h1>#}
 {%  block title %}all video{% endblock %}
-
+{%  block links %}<script src="{% static "script.js" %}"></script>{% endblock %}
 
 
 {% block video %}
+
     <img src="{% static "222.jpg" %}">
 {% for video in content %}
     <iframe width="640" height="360" src="{{ video.urls }}"></iframe>
@@ -24,7 +25,7 @@
     </a>
     <h3>{{ video.date }}</h3>
     <h5>{{ video.description }}</h5>
-    <h3>Likes: {{ video.likes }}</h3>
+    <h3 class="like" id="{{ video.id }}">Likes: {{ video.likes }}</h3>
     {% for i in video.comment.all %}
         <button data-toggle="collapse" data-target="#demo{{ i.id }}">Comment</button>
             <div id="demo{{ i.id }}" class="collapse show">
