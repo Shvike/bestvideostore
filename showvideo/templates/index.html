@@ -26,6 +26,7 @@
     <h3>{{ video.date }}</h3>
     <h5>{{ video.description }}</h5>
     <h3 class="like" id="{{ video.id }}">Likes: {{ video.likes }}</h3>
+    <div id="comment-container{{ video.id }}">
     {% for i in video.comment.all %}
         <button data-toggle="collapse" data-target="#demo{{ i.id }}">Comment</button>
             <div id="demo{{ i.id }}" class="collapse show">
@@ -34,6 +35,7 @@
         <h6>from {{ i.date }}</h6>
         <hr>
     {% endfor %}
+    </div>
 
 {%  include "test.html" with some_id=video.id %}
 {#    <form action="/hello/comment/{{ video.id }}" method="get">#}

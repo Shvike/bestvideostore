@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Video, Comment
+from json import dumps
 
 
 def hello(request):
@@ -48,3 +49,11 @@ def ajax_like(request):
     v.likes += 1
     v.save()
     return HttpResponse(v.likes)
+
+def ajax_comment(request):
+    id = request.GET["id"]
+    val = request.GET["val"]
+    com = Comment.objects.create(text=val, comment_video_id=id)
+    response = {"id":com.id, "date":com.date.__str__()}
+    response = dumps(response)
+    return HttpResponse(response)

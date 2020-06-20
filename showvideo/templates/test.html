@@ -9,12 +9,12 @@
 
 {# Using POST instead of GET#}
 
-<form action={% url "add_comment" id=some_id %} method="post">
+<form>
     {% csrf_token %}
     <div class="form-group">
       <label for="comment">Comment:</label>
-      <textarea class="form-control" rows="5" name="commentary"></textarea>
+      <textarea class="form-control" rows="5" name="commentary" id="textarea{{ some_id }}"></textarea>
       <input class="form-control" type="password" name="pwd">
     </div>
-    <button type="submit" class="btn btn-primary">Send comment</button>
+    <button type="button" class="btn btn-primary" id="{{ some_id }}">Send comment</button>
 </form>
